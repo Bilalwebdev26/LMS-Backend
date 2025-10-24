@@ -1,0 +1,1 @@
+{"version":3,"file":"api.versioning.d.ts","sourceRoot":"","sources":["../../src/config/api.versioning.ts"],"names":[],"mappings":"AAWA,OAAO,KAAK,EAAE,OAAO,EAAE,QAAQ,EAAE,YAAY,EAAE,MAAM,SAAS,CAAC;AAC/D,OAAO,EAAE,eAAe,EAAE,MAAM,2CAA2C,CAAC;AAE5E,eAAO,MAAM,eAAe,GAAI,aAAa,MAAM,OAAO,eAAe,MAC/D,KAAK,OAAO,EAAE,KAAK,QAAQ,EAAE,MAAM,YAAY,mDAUxD,CAAC"}
