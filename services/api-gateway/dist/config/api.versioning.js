@@ -8,16 +8,16 @@
 //     }
 //     next();
 //   };
-import { serviceVersions } from "../service-version/all.service.version.js";
+import { serviceVersions } from '../service-version/all.service.version.js';
 export const apiVersionCheck = (serviceName) => {
-    return (req, res, next) => {
-        const expectedVersion = serviceVersions[serviceName];
-        if (!req.originalUrl.startsWith(`/${expectedVersion}`)) {
-            return res.status(400).json({
-                error: `Invalid API version for ${serviceName}. Expected path to start with /${expectedVersion}`,
-            });
-        }
-        next();
-    };
+  return (req, res, next) => {
+    const expectedVersion = serviceVersions[serviceName];
+    if (!req.originalUrl.startsWith(`/${expectedVersion}`)) {
+      return res.status(400).json({
+        error: `Invalid API version for ${serviceName}. Expected path to start with /${expectedVersion}`,
+      });
+    }
+    next();
+  };
 };
 //# sourceMappingURL=api.versioning.js.map

@@ -1,7 +1,11 @@
-import cors from "cors";
-export declare const corsOptions: () => (req: cors.CorsRequest, res: {
+import cors from 'cors';
+export declare const corsOptions: () => (
+  req: cors.CorsRequest,
+  res: {
     statusCode?: number | undefined;
     setHeader(key: string, value: string): any;
     end(): any;
-}, next: (err?: any) => any) => void;
+  },
+  next: (err?: any) => any,
+) => void;
 //# sourceMappingURL=cors.options.d.ts.map

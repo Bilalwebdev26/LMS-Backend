@@ -1,24 +1,28 @@
-import express from "express";
-import dotenv from "dotenv";
-import cookieParser from "cookieparser";
-import courseSchema from "./routes/teacher.course.js";
-import { connectDB } from "./config/db.config.js";
+import express from 'express';
+import dotenv from 'dotenv';
+import cookieParser from 'cookie-parser';
+import teacherCourseRoutes from './routes/teacher.course.js';
+import studentCourseRoutes from './routes/student.course.js';
+import adminCourseRoutes from './routes/admin.course.js';
+import { connectDB } from './config/db.config.js';
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3003;
 //-------------middlewares----
 app.use(express.json());
-// app.use(cookieParser());
+app.use(cookieParser());
 //-------------Routes.........
-app.use("/api/v1/course", courseSchema);
+app.use('/api/v1/teacher/course', teacherCourseRoutes);
+app.use('/api/v1/admin/course', adminCourseRoutes);
+app.use('/api/v1//studentcourse', studentCourseRoutes);
 //----------------------------
 connectDB()
-    .then(() => {
+  .then(() => {
     app.listen(PORT, () => {
-        console.log("App running : ", PORT);
+      console.log('App running : ', PORT);
     });
-})
-    .catch((error) => {
-    console.log("Error occur while server running : ", error);
-});
+  })
+  .catch((error) => {
+    console.log('Error occur while server running : ', error);
+  });
 //# sourceMappingURL=server.js.map

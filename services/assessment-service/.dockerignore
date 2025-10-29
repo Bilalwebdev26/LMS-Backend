@@ -1,0 +1,27 @@
+# node modules
+node_modules
+
+# git related
+.git
+.gitignore
+
+# environment files
+.env
+.env.local
+
+# docker config files
+Dockerfile
+.dockerignore
+
+# logs
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+*.log
+
+# system files
+.DS_Store
+Thumbs.db
+
+# build cache / dist files (agar local me already ban rahe ho)
+#dist

@@ -1,17 +1,17 @@
-import mongoose, { Document } from "mongoose";
-type Status = "draft" | "published" | "archieve" | "pending";
-type Approvalstatus = "pending" | "apporved" | "rejected";
+import mongoose, { Document } from 'mongoose';
+type Status = 'draft' | 'published' | 'archieve' | 'pending';
+type Approvalstatus = 'pending' | 'apporved' | 'rejected';
 type Category =
-  | "Technology & Development"
-  | "Design & Creativity"
-  | "Business & Entrepreneurship"
-  | "Personal Development"
-  | "Marketing & Digital Media"
-  | "Finance & Accounting"
-  | "Engineering & Architecture"
-  | "Data Science & AI"
-  | "Language & Communication"
-  | "Health, Fitness & Lifestyle";
+  | 'Technology & Development'
+  | 'Design & Creativity'
+  | 'Business & Entrepreneurship'
+  | 'Personal Development'
+  | 'Marketing & Digital Media'
+  | 'Finance & Accounting'
+  | 'Engineering & Architecture'
+  | 'Data Science & AI'
+  | 'Language & Communication'
+  | 'Health, Fitness & Lifestyle';
 export interface CourseInterface extends Document {
   title: string;
   subTitle: string;
@@ -59,16 +59,16 @@ const courseSchema = new mongoose.Schema<CourseInterface>(
     category: {
       type: String,
       enum: [
-        "Technology & Development",
-        "Design & Creativity",
-        "Business & Entrepreneurship",
-        "Personal Development",
-        "Marketing & Digital Media",
-        "Finance & Accounting",
-        "Engineering & Architecture",
-        "Data Science & AI",
-        "Language & Communication",
-        "Health, Fitness & Lifestyle",
+        'Technology & Development',
+        'Design & Creativity',
+        'Business & Entrepreneurship',
+        'Personal Development',
+        'Marketing & Digital Media',
+        'Finance & Accounting',
+        'Engineering & Architecture',
+        'Data Science & AI',
+        'Language & Communication',
+        'Health, Fitness & Lifestyle',
       ],
       required: true,
     },
@@ -87,13 +87,13 @@ const courseSchema = new mongoose.Schema<CourseInterface>(
     completionRate: { type: Number, default: 0 },
     status: {
       type: String,
-      enum: ["draft", "published", "archived", "pending"],
-      default: "draft",
+      enum: ['draft', 'published', 'archived', 'pending'],
+      default: 'draft',
     },
     approvalStatus: {
       type: String,
-      enum: ["pending", "approved", "rejected"],
-      default: "pending",
+      enum: ['pending', 'approved', 'rejected'],
+      default: 'pending',
     },
     rejectedReason: { type: String },
     tags: { type: [String], default: [] },
@@ -105,6 +105,6 @@ const courseSchema = new mongoose.Schema<CourseInterface>(
     instructors: { type: [String], default: [] },
     modules: { type: [String], default: [] },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
-export const Course = mongoose.model("Course", courseSchema);
+export const Course = mongoose.model('Course', courseSchema);

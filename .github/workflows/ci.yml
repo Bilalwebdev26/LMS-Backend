@@ -1,0 +1,162 @@
+name : build-and-lint
+#define when this workflows should run 
+#triggers when push on main and dev
+on:
+ push: 
+   branches: [main,dev]
+ pull_request: 
+   branches: [main,dev]  
+# we can define multiple jobs or single job
+jobs:
+  build-and-lint:
+     runs-on: ubuntu-latest
+
+     steps:
+
+      #Depdencies setup  
+
+       - name: Checkout repo  #check repository code 
+         uses: actions/checkout@v3
+
+       - name: Setup Node
+         uses: actions/setup-node@v3
+         with:
+           node-version : 20 #this version should match your local node version
+           
+       - name: Install api-gateway dependencies
+         working-directory: services/api-gateway
+         run: npm ci      
+
+       - name: Install analytics-service dependencies
+         working-directory: services/analytics-service 
+         run: npm ci      
+           
+       - name: Install assessment-service dependencies
+         working-directory: services/assessment-service
+         run: npm ci      
+
+       - name: Install auth-service dependencies
+         working-directory: services/auth-service 
+         run: npm ci     
+          
+       - name: Install category-service dependencies
+         working-directory: services/category-service
+         run: npm ci      
+
+       - name: Install content-service dependencies
+         working-directory: services/content-service 
+         run: npm ci      
+           
+       - name: Install course-service dependencies
+         working-directory: services/course-service
+         run: npm ci      
+           
+       - name: Install enrollment-service dependencies
+         working-directory: services/enrollment-service
+         run: npm ci      
+
+       - name: Install notification-service dependencies
+         working-directory: services/notification-service 
+         run: npm ci      
+
+       - name: Install payment-service dependencies
+         working-directory: services/payment-service 
+         run: npm ci      
+           
+       - name: Install search-service dependencies
+         working-directory: services/search-service
+         run: npm ci      
+
+       - name: Install user-service dependencies
+         working-directory: services/user-service 
+         run: npm ci 
+
+      #lint setup        
+           
+       - name: lint api-gateway
+         working-directory: services/api-gateway
+         run: npm run lint -- --max-warning=0 # default warning 0      
+
+       - name: lint analytics-service
+         working-directory: services/analytics-service 
+         run: npm run lint -- --max-warning=0 # default warning 0     
+           
+       - name: lint assessment-service 
+         working-directory: services/assessment-service
+         run: npm run lint -- --max-warning=0 # default warning 0       
+
+       - name: lint auth-service 
+         working-directory: services/auth-service 
+         run: npm run lint -- --max-warning=0 # default warning 0     
+
+       - name: lint category-service
+         working-directory: services/category-service
+         run: npm run lint -- --max-warning=0 # default warning 0      
+
+       - name: lint content-service 
+         working-directory: services/content-service 
+         run: npm run lint -- --max-warning=0 # default warning 0     
+           
+       - name: lint course-service 
+         working-directory: services/course-service
+         run: npm run lint -- --max-warning=0 # default warning 0    
+           
+       - name: lint enrollment-service 
+         working-directory: services/enrollment-service
+         run: npm run lint -- --max-warning=0 # default warning 0    
+
+       - name: lint notification-service
+         working-directory: services/notification-service 
+         run: npm run lint -- --max-warning=0 # default warning 0    
+
+       - name: lint payment-service
+         working-directory: services/payment-service 
+         run: npm run lint -- --max-warning=0 # default warning 0      
+           
+       - name: lint search-service
+         working-directory: services/search-service
+         run: npm run lint -- --max-warning=0 # default warning 0       
+
+       - name: lint user-service dependencies
+         working-directory: services/user-service 
+         run: npm run lint -- --max-warning=0 # default warning 0  
+
+      #create docker images
+
+       - name: build api-gateway image
+         run: docker build -t api-gateway ./services/api-gateway 
+
+       - name: build analytics-service image
+         run: docker build -t analytics-service ./services/analytics-service
+
+       - name: build assessment-service image
+         run: docker build -t assessment-service ./services/assessment-service 
+
+       - name: build auth-service image
+         run: docker build -t auth-service ./services/auth-service 
+
+       - name: build category-service image
+         run: docker build -t category-service ./services/category-service 
+
+       - name: build content-service image
+         run: docker build -t content-service ./services/content-service 
+
+       - name: build course-service image
+         run: docker build -t course-service ./services/course-service 
+
+       - name: build enrollment-service image
+         run: docker build -t enrollment-service ./services/enrollment-service
+
+       - name: build notification-service image
+         run: docker build -t notification-service ./services/notification-service 
+
+       - name: build payment-service image
+         run: docker build -t payment-service ./services/payment-service
+
+       - name: build search-service image
+         run: docker build -t search-service ./services/search-service 
+
+       - name: build user-service image
+         run: docker build -t user-service ./services/user-service 
+                 
+   

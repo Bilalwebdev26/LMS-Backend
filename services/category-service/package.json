@@ -4,8 +4,11 @@
   "description": "",
   "main": "src/server.ts",
   "scripts": {
-    "start": "nodemon dist/server.js",
-    "dev": "concurrently \"tsc -w\" \"nodemon dist/server.js\""
+    "start": "node dist/server.js",
+    "dev": "concurrently \"tsc -w\" \"nodemon dist/server.js\"",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
+    "format": "prettier --write ."
   },
   "keywords": [],
   "author": "",
@@ -26,6 +29,8 @@
     "@types/dotenv": "^6.1.1",
     "@types/express": "^5.0.4",
     "@types/jsonwebtoken": "^9.0.10",
+    "eslint": "^9.38.0",
+    "prettier": "^3.6.2",
     "typescript": "^5.9.3"
   }
 }

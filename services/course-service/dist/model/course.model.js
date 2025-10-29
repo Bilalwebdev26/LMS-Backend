@@ -1,5 +1,6 @@
-import mongoose, { Document } from "mongoose";
-const courseSchema = new mongoose.Schema({
+import mongoose, { Document } from 'mongoose';
+const courseSchema = new mongoose.Schema(
+  {
     title: { type: String, required: true },
     subTitle: { type: String },
     description: { type: String },
@@ -9,6 +10,26 @@ const courseSchema = new mongoose.Schema({
     difficulty: { type: String },
     language: { type: String },
     certificate: { type: String },
+    category: {
+      type: String,
+      enum: [
+        'Technology & Development',
+        'Design & Creativity',
+        'Business & Entrepreneurship',
+        'Personal Development',
+        'Marketing & Digital Media',
+        'Finance & Accounting',
+        'Engineering & Architecture',
+        'Data Science & AI',
+        'Language & Communication',
+        'Health, Fitness & Lifestyle',
+      ],
+      required: true,
+    },
+    subCategory: {
+      type: String,
+      required: true,
+    },
     whatULearn: { type: String },
     slug: { type: String, required: true, unique: true },
     isFree: { type: Boolean, default: false },
@@ -19,14 +40,14 @@ const courseSchema = new mongoose.Schema({
     enrollCount: { type: Number, default: 0 },
     completionRate: { type: Number, default: 0 },
     status: {
-        type: String,
-        enum: ["draft", "published", "archived", "pending"],
-        default: "draft",
+      type: String,
+      enum: ['draft', 'published', 'archived', 'pending'],
+      default: 'draft',
     },
     approvalStatus: {
-        type: String,
-        enum: ["pending", "approved", "rejected"],
-        default: "pending",
+      type: String,
+      enum: ['pending', 'approved', 'rejected'],
+      default: 'pending',
     },
     rejectedReason: { type: String },
     tags: { type: [String], default: [] },
@@ -37,6 +58,8 @@ const courseSchema = new mongoose.Schema({
     updatedBy: { type: String },
     instructors: { type: [String], default: [] },
     modules: { type: [String], default: [] },
-}, { timestamps: true });
-export const Course = mongoose.model("Course", courseSchema);
+  },
+  { timestamps: true },
+);
+export const Course = mongoose.model('Course', courseSchema);
 //# sourceMappingURL=course.model.js.map

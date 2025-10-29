@@ -1,2 +1,108 @@
 services:
-   
+  api-gateway:
+    build: ./services/api-gateway
+    container_name: api-gateway-container
+    restart: always
+    env_file:
+      - ./services/api-gateway/.env
+    ports:
+      - "5000:5000"
+
+  auth-service:
+    build: ./services/auth-service
+    container_name: auth-service-container
+    restart: always
+    env_file:
+      - ./services/auth-service/.env
+    ports:
+      - "3001:3001"
+
+  analytics-service:
+    build: ./services/analytics-service
+    container_name: analytics-service-container
+    restart: always
+    env_file:
+      - ./services/analytics-service/.env
+    ports:
+      - "3002:3002"
+
+  course-service:
+    build: ./services/course-service
+    container_name: course-service-container
+    restart: always
+    env_file:
+      - ./services/course-service/.env
+    ports:
+      - "3003:3003"
+
+  notification-service:
+    build: ./services/notification-service
+    container_name: notification-service-container
+    restart: always
+    env_file:
+      - ./services/notification-service/.env
+    ports:
+      - "3004:3004"
+
+  payment-service:
+    build: ./services/payment-service
+    container_name: payment-service-container
+    restart: always
+    env_file:
+      - ./services/payment-service/.env
+    ports:
+      - "3005:3005"
+
+  user-service:
+    build: ./services/user-service
+    container_name: user-service-container
+    restart: always
+    env_file:
+      - ./services/user-service/.env
+    ports:
+      - "3006:3006"
+
+  content-service:
+    build: ./services/content-service
+    container_name: content-service-container
+    restart: always
+    env_file:
+      - ./services/content-service/.env
+    ports:
+      - "3007:3007"
+
+  enrollment-service:
+    build: ./services/enrollment-service
+    container_name: enrollment-service-container
+    restart: always
+    env_file:
+      - ./services/enrollment-service/.env
+    ports:
+      - "3008:3008"
+
+  assessment-service:
+    build: ./services/assessment-service
+    container_name: assessment-service-container
+    restart: always
+    env_file:
+      - ./services/assessment-service/.env
+    ports:
+      - "3009:3009"
+
+  search-service:
+    build: ./services/search-service
+    container_name: search-service-container
+    restart: always
+    env_file:
+      - ./services/search-service/.env
+    ports:
+      - "3010:3010"
+
+  category-service:
+    build: ./services/category-service
+    container_name: category-service-container
+    restart: always
+    env_file:
+      - ./services/category-service/.env
+    ports:
+      - "3011:3011"

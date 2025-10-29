@@ -1,55 +1,78 @@
-import { Course } from "../model/course.model.js";
+import { Course } from '../model/course.model.js';
 export const createCourse = async (req, res) => {
-    try {
-        const { title, subTitle, description, price, discountPercent, difficulty, language, certificate, whatULearn, isFree, tags, skills, instructors, } = req.body;
-        //Student don't have permession to add courses.
-        if (req?.user?.role === "student") {
-            return res.status(400).json({
-                tag: "addCourse",
-                message: "Student is not allowed to add course.",
-            });
-        }
-        const newCourse = new Course({
-            title,
-            subTitle,
-            description,
-            price,
-            discountPercent,
-            difficulty,
-            language,
-            certificate,
-            whatULearn,
-            isFree,
-            tags,
-            skills,
-            instructors,
-        });
-        await newCourse.save();
-        return res
-            .status(201)
-            .json({ message: "Course created SuccessFully", newCourse });
+  try {
+    const {
+      title,
+      subTitle,
+      description,
+      price,
+      discountPercent,
+      difficulty,
+      language,
+      certificate,
+      whatULearn,
+      isFree,
+      tags,
+      skills,
+      instructors,
+    } = req.body;
+    //Student don't have permession to add courses.
+    if (req?.user?.role === 'student') {
+      return res.status(400).json({
+        tag: 'addCourse',
+        message: 'Student is not allowed to add course.',
+      });
     }
-    catch (error) {
-        return res.status(400).json({
-            tag: "addCourse",
-            message: error || "Student is not allowed to add course.",
-        });
-    }
+    const newCourse = new Course({
+      title,
+      subTitle,
+      description,
+      price,
+      discountPercent,
+      difficulty,
+      language,
+      certificate,
+      whatULearn,
+      isFree,
+      tags,
+      skills,
+      instructors,
+    });
+    await newCourse.save();
+    return res.status(201).json({ message: 'Course created SuccessFully', newCourse });
+  } catch (error) {
+    return res.status(400).json({
+      tag: 'addCourse',
+      message: error || 'Student is not allowed to add course.',
+    });
+  }
 };
 export const uploadCourseMedia = async (req, res) => {
-    try {
-        const course = await Course.findById(req.params.id);
-        if (!course) {
-            return res.status(404).json({ tag: "courseFind", message: "Course not available." });
-        }
+  try {
+    const course = await Course.findById(req.params.id);
+    if (!course) {
+      return res.status(404).json({ tag: 'courseFind', message: 'Course not available.' });
     }
-    catch (error) {
-    }
+    //media chaye wo in the form of video or image or both
+  } catch (error) {}
 };
 export const updateCourse = async (req, res) => {
-    try {
-        const { title, subTitle, description, price, discountPercent, difficulty, language, certificate, whatULearn, isFree, tags, skills, instructors, } = req.body;
-    }
-    catch (error) { }
+  try {
+    const {
+      title,
+      subTitle,
+      description,
+      price,
+      discountPercent,
+      difficulty,
+      language,
+      certificate,
+      whatULearn,
+      isFree,
+      tags,
+      skills,
+      instructors,
+    } = req.body;
+  } catch (error) {}
 };
 //# sourceMappingURL=teacher.course.js.map

@@ -1,7 +1,5 @@
 export const getAllCategory = async (req, res) => {
-    try {
-    }
-    catch (error) {
-    }
+  try {
+  } catch (error) {}
 };
 //# sourceMappingURL=admin.category.js.map
