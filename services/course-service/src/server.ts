@@ -6,6 +6,7 @@ import studentCourseRoutes from './routes/student.course.js';
 import adminCourseRoutes from './routes/admin.course.js';
 import { connectDB } from './config/db.config.js';
 const unused = "ali"
+const unused2 = "ali1"
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3003;
@@ -20,7 +21,7 @@ app.use('/api/v1//studentcourse', studentCourseRoutes);
 connectDB()
   .then(() => {
     app.listen(PORT, () => {
-      console.log(`App running : ${unused}`, PORT);
+      console.log(`App running : ${unused} ${unused2}`, PORT);
     });
   })
   .catch((error) => {
