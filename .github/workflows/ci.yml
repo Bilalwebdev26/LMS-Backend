@@ -75,51 +75,51 @@ jobs:
            
        - name: lint api-gateway
          working-directory: services/api-gateway
-         run: npm run lint -- --max-warning=0 # default warning 0      
+         run: npm run lint -- --max-warnings=0 # default warnings 0      
 
        - name: lint analytics-service
          working-directory: services/analytics-service 
-         run: npm run lint -- --max-warning=0 # default warning 0     
+         run: npm run lint -- --max-warnings=0 # default warnings 0     
            
        - name: lint assessment-service 
          working-directory: services/assessment-service
-         run: npm run lint -- --max-warning=0 # default warning 0       
+         run: npm run lint -- --max-warnings=0 # default warnings 0       
 
        - name: lint auth-service 
          working-directory: services/auth-service 
-         run: npm run lint -- --max-warning=0 # default warning 0     
+         run: npm run lint -- --max-warnings=0 # default warnings 0     
 
        - name: lint category-service
          working-directory: services/category-service
-         run: npm run lint -- --max-warning=0 # default warning 0      
+         run: npm run lint -- --max-warnings=0 # default warnings 0      
 
        - name: lint content-service 
          working-directory: services/content-service 
-         run: npm run lint -- --max-warning=0 # default warning 0     
+         run: npm run lint -- --max-warnings=0 # default warnings 0     
            
        - name: lint course-service 
          working-directory: services/course-service
-         run: npm run lint -- --max-warning=0 # default warning 0    
+         run: npm run lint -- --max-warnings=0 # default warnings 0    
            
        - name: lint enrollment-service 
          working-directory: services/enrollment-service
-         run: npm run lint -- --max-warning=0 # default warning 0    
+         run: npm run lint -- --max-warnings=0 # default warnings 0    
 
        - name: lint notification-service
          working-directory: services/notification-service 
-         run: npm run lint -- --max-warning=0 # default warning 0    
+         run: npm run lint -- --max-warnings=0 # default warnings 0    
 
        - name: lint payment-service
          working-directory: services/payment-service 
-         run: npm run lint -- --max-warning=0 # default warning 0      
+         run: npm run lint -- --max-warnings=0 # default warnings 0      
            
        - name: lint search-service
          working-directory: services/search-service
-         run: npm run lint -- --max-warning=0 # default warning 0       
+         run: npm run lint -- --max-warnings=0 # default warnings 0       
 
        - name: lint user-service dependencies
          working-directory: services/user-service 
-         run: npm run lint -- --max-warning=0 # default warning 0  
+         run: npm run lint -- --max-warnings=0 # default warnings 0  
 
       #create docker images
 
