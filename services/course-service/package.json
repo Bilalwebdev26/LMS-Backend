@@ -4,12 +4,13 @@
   "description": "",
   "main": "src/server.ts",
   "scripts": {
-    "start": "node dist/server.js",
-    "dev": "concurrently \"tsc -w\" \"nodemon dist/server.js\"",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
-    "format": "prettier --write ."
-  },
+  "start": "node dist/server.js",
+  "dev": "concurrently \"tsc -w\" \"nodemon dist/server.js\"",
+  "build": "rimraf dist && tsc",
+  "lint": "eslint src --ext .ts",
+  "lint:fix": "eslint src --ext .ts --fix",
+  "format": "prettier --write src"
+},
   "keywords": [],
   "author": "",
   "license": "ISC",
