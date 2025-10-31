@@ -5,7 +5,7 @@ import teacherCourseRoutes from './routes/teacher.course.js';
 import studentCourseRoutes from './routes/student.course.js';
 import adminCourseRoutes from './routes/admin.course.js';
 import { connectDB } from './config/db.config.js';
-const unused = ''
+
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3003;
