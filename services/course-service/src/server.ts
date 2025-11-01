@@ -28,7 +28,7 @@
 
 import express from 'express';
 // <<<<<<< HEAD
-// import dotenv from 'dotenv';
+import dotenv from 'dotenv';
 // import cookieParser from 'cookie-parser';
 // import teacherCourseRoutes from './routes/teacher.course.js';
 // import studentCourseRoutes from './routes/student.course.js';
@@ -57,6 +57,7 @@ import express from 'express';
 //     console.log('Error occur while server running : ', error);
 //   });
 // =======
+dotenv.config()
 const app = express();
 app.listen(3003, () => {
   console.log('Course App running : ', 3003);
