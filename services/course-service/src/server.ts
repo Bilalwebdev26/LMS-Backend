@@ -59,7 +59,8 @@ import dotenv from 'dotenv';
 // =======
 dotenv.config()
 const app = express();
-app.listen(3003, () => {
-  console.log('Course App running : ', 3003);
+const PORT = process.env.PORT || 3003;
+app.listen(PORT, () => {
+  console.log('Course App running : ', PORT);
 });
 // >>>>>>> main
